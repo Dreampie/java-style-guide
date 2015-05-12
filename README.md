@@ -65,7 +65,7 @@
 	* 数组的命名
 		* 数组应该总是用下面的方式来命名：
 
-			```
+			```java
 			byte[] buffer;
 			//而不是：
 			byte buffer[];
@@ -81,7 +81,7 @@
 	* 文件头声明
 		* 源文件的头部需要一个history段，对于每次对源文件的重大改动，都需要在history段中注明。该段定义在package和import之间，例如：
 
-			```
+			```java
 		  /**********************************************
 			* 2015-01-29 Biz 创建文件
 			*
@@ -99,7 +99,7 @@
 		6. 每一类import后面加一个换行。
 	* 代码块书写格式
 
-			```
+			```java
 			if (true){
 			　//body 必须包含大括号  即使只有一行代码 避免后期增加代码时出现错误
 			}
@@ -107,7 +107,7 @@
 * 注释
 	* 类注释
 
-			```
+			```java
 			/**
 	 		 * @author wangrenhui
 	 		 * @date 2015-04-12
@@ -121,7 +121,7 @@
 * SQL语句
 	* 代码中书写的SQL语句要求SQL关键字全部大写，表名和字段名小写。例如：
 
-			```
+			```sql
 			SELECT user_id, name FROM account
 			WHERE user_id > ? AND depart = ? ORDER BY name
 			```
@@ -133,7 +133,7 @@
 
 			对于代码中的逻辑分支或循环条件需要书写注释，例如：
 
-			```
+			```java
 			if (some condition){
 			  //符合某个条件，应该这样处理
 			}else{
@@ -142,7 +142,7 @@
 			``` 
 	5. java的类和方法。都需要用文档注释，需要写清楚说明，版本，参数，返回值，作者，创建日期，修改日期。例：
 
-			```
+			```java
 			/**
 			  * @author wangrenhui
 			  * @date 2015-02-13
@@ -157,7 +157,7 @@
 * 尽量让所有的maven项目使用相同的父级，如：resty
 	在父级配置通用内容：
 
-	```
+	```xml
 	  <!--快照代码仓库-->
 	  <repositories>
 	    <repository>
@@ -224,7 +224,7 @@
 	```
 * 在maven中使用jetty，tomcat容器,相关配置可以去官网查询
 
-	```
+	```xml
 	   <!--jetty-->
 	   <plugin>
         <groupId>org.eclipse.jetty</groupId>
