@@ -1,0 +1,642 @@
+<!DOCTYPE html><html>
+
+<head>
+<meta charset="utf-8">
+<title>java-styleguide</title>
+<style type="text/css">
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+}
+</style>
+</head>
+<body>
+<h1 id="toc_0">Java 项目开发规范</h1>
+
+<h1 id="toc_1"></h1>
+
+<h2 id="toc_2">前言</h2>
+
+<p>为了使软件开发过程有章可循，保证软件质量，加强开发管理。 </p>
+
+<h2 id="toc_3">目录</h2>
+
+<ul>
+<li><a href="#%E6%96%87%E4%BB%B6%E8%A7%84%E8%8C%83">文件规范</a></li>
+<li><a href="#%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83">命名规范</a></li>
+<li><a href="#%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83">代码规范</a></li>
+<li><a href="#Maven%E4%BD%BF%E7%94%A8%E8%A7%84%E8%8C%83">Maven使用规范</a></li>
+</ul>
+
+<h3 id="toc_4">文件规范</h3>
+
+<ul>
+<li>文件必须使用UTF-8编码</li>
+<li>License或者copyright声明信息。（如果需要声明）</li>
+</ul>
+
+<h3 id="toc_5">命名规范</h3>
+
+<ul>
+<li><p>项目命名规范</p>
+
+<ul>
+<li><p>项目编号：项目英文/中文拼音名称_开发组编号_序列号
+(序列号由3位数字组成，不足的用&#39;0&#39;补齐)。</p></li>
+<li><p>项目文档：项目英文/中文拼音名称_文档名称_序列号_编写人名称/编号_日期</p></li>
+</ul></li>
+<li><p>数据库命名规范</p>
+
+<ul>
+<li><p>数据库表命名均遵循以下规范：</p>
+
+<ul>
+<li>类型名<em>模块名</em>存储信息名词(多个单词用下划线分隔)，全部小写，例如：fun_mail_message。(fun前缀表示功能，com前缀表示组件，sec前缀表示权限)</li>
+</ul></li>
+<li><p>数据库字段命名遵循以下规范：</p>
+
+<ul>
+<li>存储信息名词(多个单词用下划线分隔)，全部小写，例如：message_id。</li>
+</ul></li>
+</ul></li>
+<li><p>Java源码命名规范</p>
+
+<ul>
+<li>目录 的命名
+
+<ul>
+<li>项目resty-example:
+
+<ol>
+<li>src/main/java 源码目录</li>
+<li>src/main/resources 资源文件目录</li>
+<li>src/main/webapp web文件目录</li>
+<li>src/test/java 测试源码目录</li>
+<li>src/test/resources 测试资源文件目录(如果不是特例可以直接读取main下的资源文件)</li>
+</ol></li>
+</ul></li>
+<li><p>Package 的命名</p>
+
+<ul>
+<li>Package 的名字应该都是由一个小写单词组成，包的命名一般都是按照域名+公司名+项目名+具体反映包内容的名字。例如：cn.dreampie.xxx。</li>
+<li>此外，对于包名我们做如下约定:
+
+<ol>
+<li>工具函数类包名前缀为 .utils</li>
+<li>Servlet类包名前缀为 .servlet</li>
+<li>逻辑功能类包前缀为 .fun</li>
+<li>具体的逻辑功能内容前缀为功能的缩写 .fun.order</li>
+</ol></li>
+</ul></li>
+<li><p>Class 的命名</p>
+
+<ul>
+<li>类名是个名词，采用大小写混合的方式，每个单词的首字母大写。尽量使你的类名简洁而富于描述。例如：DataFile或InfoParser。使用完整单词，避免缩写词(除非该缩写词被更广泛使用，像URL，HTML)。
+异常类最后加上「Exception」（例：SQLException）。
+另外，接口的命名和类的命名大体相同，只是接口一般用形容词。例如：Runnable。</li>
+</ul></li>
+<li><p>Class 变量的命名</p>
+
+<ul>
+<li>变量的名字必须用一个小写字母开头。后面的单词用大写字母开头，变量名一般为动词。变量名不应以下划线或美元符号开头，尽管这在语法上是允许的。
+例如：debug 或 inputFileSize。</li>
+</ul></li>
+<li><p>Static Final 变量的命名</p>
+
+<ul>
+<li>Static Final 变量的名字应该都大写，并且指出完整含义，多个单词之间用下划线分隔。例如：MAX_UPLOAD_FILE_SIZE=1024。</li>
+</ul></li>
+<li><p>参数的命名</p>
+
+<ul>
+<li><p>参数的名字必须和变量的命名规范一致。使用有意义的参数命名，如果可能的话，使用和要赋值的字段一样的名字：</p>
+
+<pre><code>setSize(int size){
+    this.size = size;
+}</code></pre></li>
+</ul></li>
+<li><p>数组的命名</p>
+
+<ul>
+<li><p>数组应该总是用下面的方式来命名：</p>
+
+<pre><code>byte[] buffer;
+//而不是：
+byte buffer[];</code></pre></li>
+</ul></li>
+<li><p>方法的命名</p>
+
+<ul>
+<li><p>方法名以小写字母动词开头，后续的各单词开头字母大写。例如：inputFile()。</p></li>
+<li><p>Debug用的方法用「debug」作为前缀，与其他方法区别开。例如：debugMethod()。</p></li>
+<li><p>JavaBeans的相关函数、设置成员变量的方法用“set”＋成员变量名表示，读取成员变量的方法用“get”＋成员变量名表示。但是，对于布尔值（boolean）读取成员变量的方法用“is”＋成员变量名表示。</p></li>
+</ul></li>
+</ul></li>
+</ul>
+
+<h3 id="toc_6">代码规范</h3>
+
+<ul>
+<li><p>代码</p>
+
+<ul>
+<li><p>文件头声明</p>
+
+<ul>
+<li><p>源文件的头部需要一个history段，对于每次对源文件的重大改动，都需要在history段中注明。该段定义在package和import之间，例如：</p>
+
+<pre><code>/**********************************************
+* 2015-01-29 Biz 创建文件
+* 
+* 2015-02-19 kevin 增加xx功能
+*
+* 2015-03-01 ben 增加xx功能
+***********************************************/</code></pre></li>
+</ul></li>
+<li><p>import顺序(idea 自带优化)</p>
+
+<ol>
+<li>jdk标准包</li>
+<li>java扩展包（例如servlet，javamail，jce等）</li>
+<li>使用的外部库的包（例如xml parser）</li>
+<li>使用的项目的公共包</li>
+<li>使用的模块的其他包</li>
+<li>每一类import后面加一个换行。</li>
+</ol></li>
+<li><p>代码块书写格式</p>
+
+<pre><code>```
+if (true){
+　//body 必须包含大括号  即使只有一行代码 避免后期增加代码时出现错误
+}
+```</code></pre></li>
+</ul></li>
+<li><p>注释</p>
+
+<ul>
+<li><p>类注释</p>
+
+<pre><code>``` 
+/**
+ * @author wangrenhui 
+ * @date 2015-04-12
+ * @what 用户实体类
+ */
+``` </code></pre></li>
+<li><p>关于缩进(重要)</p>
+
+<ul>
+<li>  Tab size 2</li>
+<li> Indent 2</li>
+<li> Continuation indent 4</li>
+</ul></li>
+</ul></li>
+<li><p>SQL语句</p>
+
+<ul>
+<li><p>代码中书写的SQL语句要求SQL关键字全部大写，表名和字段名小写。例如：</p>
+
+<pre><code>```
+SELECT user_id, name FROM account 
+WHERE user_id &gt; ? AND depart = ? ORDER BY name
+```</code></pre></li>
+</ul></li>
+<li><p>Java注释有三种类型，分为单行注释(//)，多行注释(/* */)和文档注释(/** */)。</p>
+
+<ol>
+<li>注释应放在代码的上方或右方，不能放在其下方。</li>
+<li>全局变量要有较详细的注释，包括对其功能、取值范围、哪些函数或过程存取它以 及存取时注意事项等的说明。 </li>
+<li>在每个源文件的头部要有必要的注释信息，包括：文件名；版本号；作者；生成日期；模块功能描述（如功能、主要算法、内部各部分之间的关系、该文件与其它文件关系等）；主要函数或过程清单及本文件历史修改记录等。</li>
+<li><p>public 和 protected的成员变量和方法必须写javadoc注释。超过1句以上的注释使用中文书写。对于代码多于10行的private方法也要写javadoc注释。</p>
+
+<pre><code>对于代码中的逻辑分支或循环条件需要书写注释，例如：
+
+```
+if (some condition){
+  //符合某个条件，应该这样处理
+}else{
+　//否则应该那样处理
+}
+``` </code></pre></li>
+<li><p>java的类和方法。都需要用文档注释，需要写清楚说明，版本，参数，返回值，作者，创建日期，修改日期。例：</p>
+
+<pre><code>```
+/**
+  * @author wangrenhui
+  * @date 2015-02-13
+  * @what 获取实体属性排序数组
+  * @param entityClass 对象类型
+  * @param fieldNames 属性名数组       
+  * @return 排序数组
+  */
+```</code></pre></li>
+</ol></li>
+</ul>
+
+<h3 id="toc_7">Maven使用规范</h3>
+
+<ul>
+<li><p>尽量让所有的maven项目使用相同的父级，如：resty
+在父级配置通用内容：</p>
+
+<pre><code>  &lt;!--快照代码仓库--&gt;
+  &lt;repositories&gt;
+    &lt;repository&gt;
+      &lt;id&gt;ossrh&lt;/id&gt;
+      &lt;url&gt;https://oss.sonatype.org/content/repositories/snapshots&lt;/url&gt;
+      &lt;releases&gt;
+        &lt;enabled&gt;false&lt;/enabled&gt;
+      &lt;/releases&gt;
+      &lt;snapshots&gt;
+        &lt;enabled&gt;true&lt;/enabled&gt;
+      &lt;/snapshots&gt;
+    &lt;/repository&gt;
+  &lt;/repositories&gt;
+  &lt;!--属性--&gt;
+  &lt;properties&gt;
+    &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;
+    &lt;junit.version&gt;4.11&lt;/junit.version&gt;
+  &lt;/properties&gt;
+
+  &lt;!--使用的license协议--&gt;
+  &lt;licenses&gt;
+    &lt;license&gt;
+      &lt;name&gt;Apache License Version 2.0&lt;/name&gt;
+      &lt;url&gt;http://www.apache.org/licenses/LICENSE-2.0&lt;/url&gt;
+    &lt;/license&gt;
+  &lt;/licenses&gt;
+  &lt;!--开发者--&gt;
+  &lt;developers&gt;
+    &lt;developer&gt;
+      &lt;name&gt;Dreampie&lt;/name&gt;
+      &lt;email&gt;Dreampie@outlook.com&lt;/email&gt;
+      &lt;organization&gt;Dreampie&lt;/organization&gt;
+      &lt;organizationUrl&gt;http://www.dreampie.cn&lt;/organizationUrl&gt;
+    &lt;/developer&gt;
+  &lt;/developers&gt;
+  &lt;!--源码地址--&gt;
+  &lt;scm&gt;
+    &lt;connection&gt;scm:git:git@github.com:Dreampie/${project.name}.git&lt;/connection&gt;
+    &lt;developerConnection&gt;scm:git:git@github.com:Dreampie/${project.name}.git&lt;/developerConnection&gt;
+    &lt;url&gt;git@github.com:Dreampie/${project.name}&lt;/url&gt;
+  &lt;/scm&gt;
+
+  &lt;!--deploy使用仓库地址--&gt;
+  &lt;distributionManagement&gt;
+    &lt;snapshotRepository&gt;
+      &lt;id&gt;ossrh&lt;/id&gt;
+      &lt;url&gt;https://oss.sonatype.org/content/repositories/snapshots&lt;/url&gt;
+    &lt;/snapshotRepository&gt;
+    &lt;repository&gt;
+      &lt;id&gt;ossrh&lt;/id&gt;
+      &lt;url&gt;https://oss.sonatype.org/service/local/staging/deploy/maven2&lt;/url&gt;
+    &lt;/repository&gt;
+  &lt;/distributionManagement&gt;
+  &lt;!--公共的依赖--&gt;
+  &lt;dependencies&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;junit&lt;/groupId&gt;
+      &lt;artifactId&gt;junit&lt;/artifactId&gt;
+      &lt;version&gt;${junit.version}&lt;/version&gt;
+      &lt;scope&gt;test&lt;/scope&gt;
+    &lt;/dependency&gt;
+  &lt;/dependencies&gt;
+</code></pre></li>
+<li><p>在maven中使用jetty，tomcat容器,相关配置可以去官网查询</p>
+
+<pre><code>   &lt;!--jetty--&gt;
+   &lt;plugin&gt;
+    &lt;groupId&gt;org.eclipse.jetty&lt;/groupId&gt;
+    &lt;artifactId&gt;jetty-maven-plugin&lt;/artifactId&gt;
+    &lt;version&gt;9.1.1.v20140108&lt;/version&gt;
+    &lt;configuration&gt;
+      &lt;stopKey&gt;foo&lt;/stopKey&gt;
+      &lt;stopPort&gt;9091&lt;/stopPort&gt;
+      &lt;jvmArgs&gt;-Xmx1024m -Xms256m -XX:PermSize=256M -XX:MaxPermSize=512M&lt;/jvmArgs&gt;
+      &lt;scanIntervalSeconds&gt;6&lt;/scanIntervalSeconds&gt;
+      &lt;httpConnector&gt;
+        &lt;port&gt;9090&lt;/port&gt;
+      &lt;/httpConnector&gt;
+      &lt;webAppConfig&gt;
+        &lt;contextPath&gt;/&lt;/contextPath&gt;
+        &lt;!--&lt;defaultsDescriptor&gt;${basedir}/src/main/resources/webdefault.xml&lt;/defaultsDescriptor&gt;--&gt;
+      &lt;/webAppConfig&gt;
+      &lt;systemProperties&gt;
+        &lt;systemProperty&gt;
+          &lt;name&gt;org.eclipse.util.URI.charset&lt;/name&gt;
+          &lt;value&gt;UTF-8&lt;/value&gt;
+        &lt;/systemProperty&gt;
+      &lt;/systemProperties&gt;
+    &lt;/configuration&gt;
+  &lt;/plugin&gt;
+  &lt;!--tomcat--&gt;
+  &lt;plugin&gt;
+    &lt;groupId&gt;org.apache.tomcat.maven&lt;/groupId&gt;
+    &lt;artifactId&gt;tomcat6-maven-plugin&lt;/artifactId&gt;
+    &lt;version&gt;2.2&lt;/version&gt;
+    &lt;configuration&gt;
+      &lt;uriEncoding&gt;UTF-8&lt;/uriEncoding&gt;
+      &lt;port&gt;9090&lt;/port&gt;
+      &lt;path&gt;/&lt;/path&gt;
+      &lt;!-- 应用的部署位置 --&gt;
+    &lt;/configuration&gt;
+  &lt;/plugin&gt;</code></pre></li>
+</ul>
+
+
+</body>
+
+</html>
