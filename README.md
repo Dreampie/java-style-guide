@@ -99,21 +99,21 @@
 		6. 每一类import后面加一个换行。
 	* 代码块书写格式
 
-			```java
-			if (true){
-			　//body 必须包含大括号  即使只有一行代码 避免后期增加代码时出现错误
-			}
-			```
+		```java
+		if (true){
+		　//body 必须包含大括号  即使只有一行代码 避免后期增加代码时出现错误
+		}
+		```
 * 注释
 	* 类注释
 
-			```java
-			/**
-	 		 * @author wangrenhui
-	 		 * @date 2015-04-12
-	 		 * @what 用户实体类
-	 		 */
-	 		```
+		```java
+		/**
+ 		 * @author wangrenhui
+ 		 * @date 2015-04-12
+ 		 * @what 用户实体类
+ 		 */
+ 		```
  	* 关于缩进(重要)
  		*	Tab size 2
  		*  Indent 2
@@ -121,10 +121,10 @@
 * SQL语句
 	* 代码中书写的SQL语句要求SQL关键字全部大写，表名和字段名小写。例如：
 
-			```sql
-			SELECT user_id, name FROM account
-			WHERE user_id > ? AND depart = ? ORDER BY name
-			```
+		```sql
+		SELECT user_id, name FROM account
+		WHERE user_id > ? AND depart = ? ORDER BY name
+		```
 * Java注释有三种类型，分为单行注释(//)，多行注释(/* \*/)和文档注释(/** */)。
 	1. 注释应放在代码的上方或右方，不能放在其下方。
 	2. 全局变量要有较详细的注释，包括对其功能、取值范围、哪些函数或过程存取它以 及存取时注意事项等的说明。 
@@ -133,25 +133,25 @@
 
 			对于代码中的逻辑分支或循环条件需要书写注释，例如：
 
-			```java
-			if (some condition){
-			  //符合某个条件，应该这样处理
-			}else{
-			　//否则应该那样处理
-			}
-			``` 
+		```java
+		if (some condition){
+		  //符合某个条件，应该这样处理
+		}else{
+		　//否则应该那样处理
+		}
+		``` 
 	5. java的类和方法。都需要用文档注释，需要写清楚说明，版本，参数，返回值，作者，创建日期，修改日期。例：
 
-			```java
-			/**
-			  * @author wangrenhui
-			  * @date 2015-02-13
-			  * @what 获取实体属性排序数组
-			  * @param entityClass 对象类型
-			  * @param fieldNames 属性名数组
-			  * @return 排序数组
-			  */
-			```
+		```java
+		/**
+		  * @author wangrenhui
+		  * @date 2015-02-13
+		  * @what 获取实体属性排序数组
+		  * @param entityClass 对象类型
+		  * @param fieldNames 属性名数组
+		  * @return 排序数组
+		  */
+		```
 
 ### Maven使用规范
 * 尽量让所有的maven项目使用相同的父级，如：resty
