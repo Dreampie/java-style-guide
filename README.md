@@ -34,6 +34,9 @@
 			3. src/main/webapp web文件目录
 			4. src/test/java 测试源码目录
 			5. src/test/resources 测试资源文件目录(如果不是特例可以直接读取main下的资源文件)
+		* 复杂项目或需要被别人依赖的项目分包:
+			1. 发布依赖包命名 模块-系统类型-definer,示例 user-api-definer 和 user-service-definer，主要存放定义的Model和Interface等其他项目使用你的功能所必要的内容，不需要具体的实现代码(特别是rpc场景)，保证有效依赖，去除无意义依赖
+			2. 具体的实现包命名 模块-系统类型-provider,示例 user-api-provider 和 user-service-provider，主要存放支持definer的具体实现
 	* Package 的命名
 
 		* Package 的名字应该都是由一个小写单词组成，包的命名一般都是按照域名+公司名+项目名+具体反映包内容的名字。例如：cn.dreampie.xxx。
